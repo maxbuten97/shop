@@ -1,8 +1,7 @@
 import { useState } from 'react';
 import s from './App.module.scss';
-import { Link } from 'react-router-dom';
+import { Link, Outlet } from 'react-router-dom';
 import './normalize.scss';
-import About from '@/pages/about/About';
 
 export const App = () => {
 	const [count, setCount] = useState<number>(0)
@@ -24,9 +23,6 @@ export const App = () => {
 
 	return (
 		<div>
-			<div>
-				<h1 data-testid={'App.DataTestId'}>PLATFORM={__PLATFORM__}</h1>
-			</div>
 			<div className={s.links}>
 			<Link to={'/'}>Главная</Link>
 			<Link to={'/about'}>О нас</Link>
@@ -35,7 +31,8 @@ export const App = () => {
 			<div className={s.value}>{count}</div>
 			<button className={s.button} onClick={decrement}>-</button>
 			<button className={s.button} onClick={increment}>+</button>
-			<About />
+			<Outlet />
 		</div>
+		
 	);
 };
