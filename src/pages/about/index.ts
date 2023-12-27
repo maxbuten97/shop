@@ -1,1 +1,1 @@
-export { LazyAbout as About } from './About.lazy';
+export { LazyAbout as About } from "./About.lazy";

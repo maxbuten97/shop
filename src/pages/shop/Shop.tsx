@@ -1,10 +1,11 @@
+import ProductsList from "@/components/ProductsList/ProductsList";
 
 const Shop = () => {
-	return (
-		<div>
-			Shop Магазин
-		</div>
-	);
+  return (
+    <div>
+      <ProductsList />
+    </div>
+  );
 };
 
 export default Shop;

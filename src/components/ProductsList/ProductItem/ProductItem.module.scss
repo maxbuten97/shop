@@ -1,0 +1,35 @@
+.title {
+	display: flex;
+	justify-content: center;
+	font-size: 40px;
+}
+
+.cards {
+	display: flex;
+	justify-content: center;
+	flex-wrap: wrap;
+	gap: 25px;
+}
+
+.card {
+	padding: 25px 15px;
+	width: 300px;
+	display: flex;
+	gap: 10px;
+	flex-direction: column;
+	border: 1px solid #ccc;
+	border-radius: 10px;
+}
+
+.img_wrap {
+	display: flex;
+	justify-content: center;
+}
+
+.content_card {
+	display: flex;
+	flex-direction: column;
+	text-align: center;
+	justify-content: end;
+	gap: 10px;
+}

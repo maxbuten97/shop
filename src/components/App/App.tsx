@@ -1,14 +1,9 @@
-import { useState } from "react";
 import s from "./App.module.scss";
-import { Link, Outlet } from "react-router-dom";
+import { NavLink, Outlet } from "react-router-dom";
 import "./normalize.scss";
+import Header from "../Header/Header";
 
 export const App = () => {
-  const [count, setCount] = useState<number>(0);
-
-  const increment = () => setCount((prev) => prev + 1);
-  const decrement = () => setCount((prev) => prev - 1);
-
   // if(__PLATFORM__ === 'desktop') {
   // 	return <div>DESKTOP PLATFORM</div>
   // }
@@ -21,19 +16,8 @@ export const App = () => {
   // }
 
   return (
-    <div>
-      <div className={s.links}>
-        <Link to={"/"}>Главная</Link>
-        <Link to={"/about"}>О нас</Link>
-        <Link to={"/shop"}>Магазин</Link>
-      </div>
-      <div className={s.value}>{count}</div>
-      <button className={s.button} onClick={decrement}>
-        -
-      </button>
-      <button className={s.button} onClick={increment}>
-        +
-      </button>
+    <div className={s.App}>
+      <Header />
       <Outlet />
     </div>
   );
