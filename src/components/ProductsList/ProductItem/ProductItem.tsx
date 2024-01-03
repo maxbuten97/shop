@@ -17,7 +17,7 @@ const ProductItem = () => {
     };
 
     fetchData();
-  }, [products]);
+  }, []);
 
   return (
     <div>
