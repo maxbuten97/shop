@@ -15,6 +15,7 @@ import Logo from "../../../assets/logo.png";
 import { Link, NavLink } from "react-router-dom";
 import s from "./Navigation.module.scss";
 import Ava from "../../../assets/ava.jpg";
+import SignComponent from "../SignComponent/SignComponent";
 interface IPage {
   id: string;
   text: string;
@@ -22,8 +23,8 @@ interface IPage {
 }
 const pages: IPage[] = [
   { id: "1", text: "Главная", link: "/" },
-  { id: "1", text: "Магазин", link: "/shop" },
-  { id: "1", text: "О нас", link: "/about" },
+  { id: "2", text: "Магазин", link: "/shop" },
+  { id: "3", text: "О нас", link: "/about" },
 ];
 const settings = ["Профиль", "Корзина", "Избранное", "Выход"];
 
@@ -135,7 +136,7 @@ function ResponsiveAppBar() {
               </Button>
             ))}
           </Box>
-
+          <SignComponent />
           <Box sx={{ flexGrow: 0 }}>
             <Tooltip title="Open settings">
               <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
@@ -171,24 +172,3 @@ function ResponsiveAppBar() {
   );
 }
 export default ResponsiveAppBar;
-// import { NavLink } from "react-router-dom";
-// import s from "./Navigation.module.scss";
-
-// const Navigation = () => {
-//   return (
-//     <div className={s.Navigation}>
-//       <div className={s.links}>
-//         <NavLink className={s.link} to={page.link}>
-//         </NavLink>
-// <NavLink className={s.link} to={"/about"}>
-//   О нас
-// </NavLink>
-//         <NavLink className={s.link} to={"/shop"}>
-//           Магазин
-//         </NavLink>
-//       </div>
-//     </div>
-//   );
-// };
-
-// export default Navigation;

@@ -1,0 +1,28 @@
+.PlaceOrder {
+	max-width: 1488px;
+	margin: 0 auto;
+}
+
+.link {
+	display: block;
+	margin: 0 auto;
+	padding: 0.75rem;
+	margin-top: 1.25rem;
+	border-radius: 0.75rem;
+	width: 60%;
+	text-align: center;
+	color: #ffffff;
+	background-color: #065f46;
+	transition-property: color, background-color, border-color, text-decoration-color, fill, stroke;
+	transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+	transition-duration: 300ms;
+	transition-duration: 300ms;
+	transition-timing-function: cubic-bezier(0.4, 0, 1, 1);
+	box-shadow:
+		0 4px 6px -1px rgba(0, 0, 0, 0.1),
+		0 2px 4px -1px rgba(0, 0, 0, 0.06);
+	text-decoration: none;
+}
+.link:hover {
+	background-color: #047857;
+}

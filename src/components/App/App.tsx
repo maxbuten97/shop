@@ -1,9 +1,12 @@
 import s from "./App.module.scss";
-import { NavLink, Outlet } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 import "./normalize.scss";
 import Header from "../Header/Header";
+import store from "@/store/store";
+import { Provider } from "react-redux";
+import { FC } from "react";
 
-export const App = () => {
+export const App: FC = () => {
   // if(__PLATFORM__ === 'desktop') {
   // 	return <div>DESKTOP PLATFORM</div>
   // }
@@ -16,9 +19,11 @@ export const App = () => {
   // }
 
   return (
-    <div className={s.App}>
-      <Header />
-      <Outlet />
-    </div>
+    <Provider store={store}>
+      <div className={s.App}>
+        <Header />
+        <Outlet />
+      </div>
+    </Provider>
   );
 };

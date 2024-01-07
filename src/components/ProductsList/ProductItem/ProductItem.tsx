@@ -1,41 +1,41 @@
-import axios from "axios";
-import { useState, useEffect } from "react";
+import { FC } from "react";
 import s from "./ProductItem.module.scss";
+import { Button } from "@mui/material";
+import { useTypedSelector } from "@/Hooks/useTypedSelector";
+import { IProduct } from "@/store/product/product.types";
+import { useActions } from "@/Hooks/useActions";
 
-const ProductItem = () => {
-  const [products, setProducts] = useState([]);
-  const [error, setError] = useState(null);
-  useEffect(() => {
-    const fetchData = async () => {
-      try {
-        const response = await axios.get("https://fakestoreapi.com/products?limit=15");
-        setProducts(response.data);
-      } catch (error) {
-        console.error("Error fetching data:", error);
-        setError("An error occurred while fetching data.");
-      }
-    };
-
-    fetchData();
-  }, [products]);
-
+const ProductItem: FC<{ product: IProduct }> = ({ product }) => {
+  const { addItem } = useActions();
+  const { cart } = useTypedSelector((state) => state);
+  const isExistsInCart = cart.some((item) => item.id === product.id);
   return (
     <div>
-      <h2 className={s.title}>Каталог</h2>
-
-      <div className={s.cards}>
-        {products.map((product) => (
-          <div className={s.card} key={product.id}>
-            <div className={s.img_wrap}>
-              {/* Должен быть роут на карточку товара */}
-              <img className={s.image_card} src={product.image} alt={product.title} width={150} height={150} />
-            </div>
-            <div className={s.content_card}>
-              <strong>{product.title}</strong>
-              <div>Цена: ${product.price}</div>
-            </div>
-          </div>
-        ))}
+      <div className={s.card} key={product.id}>
+        <div className={s.img_wrap}>
+          {/* Должен быть роут на карточку товара */}
+          <img
+            className={s.image_card}
+            src={product.image}
+            alt={product.title}
+            width={150}
+            height={150}
+          />
+        </div>
+        <div className={s.content_card}>
+          <strong>{product.title}</strong>
+          <div>Цена: ${product.price}</div>
+          <Button
+            variant="contained"
+            color="success"
+            onClick={() => !isExistsInCart && addItem(product)}
+          >
+            {isExistsInCart ? "Удалить" : "Добавить в корзину"}
+          </Button>
+          <Button variant="contained" color="primary">
+            Открыть товар
+          </Button>
+        </div>
       </div>
     </div>
   );
