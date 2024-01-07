@@ -1,4 +1,4 @@
-import s from "./signin-form.module.scss";
+import s from "./register-form.module.scss";
 import { Button, Typography } from "@mui/material";
 import { TextField } from "@mui/material";
 import {
@@ -7,7 +7,10 @@ import {
   useForm,
   useFormState,
 } from "react-hook-form";
-import { loginValidation, passwordValidation } from "./validation";
+import {
+  loginValidation,
+  passwordValidation,
+} from "../../signin/signin-form/validation";
 import { NavLink } from "react-router-dom";
 
 interface ISignInForm {
@@ -15,7 +18,7 @@ interface ISignInForm {
   password: string;
 }
 
-const SignInForm = () => {
+const RegisterForm = () => {
   const { handleSubmit, control } = useForm<ISignInForm>();
   const { errors } = useFormState({
     control,
@@ -27,7 +30,7 @@ const SignInForm = () => {
       {" "}
       <div className={s.authForm_wrap}>
         <Typography variant="h4" component="div">
-          Войдите
+          Зарегистрируйтесь
         </Typography>
         <Typography
           className={s.authForm__subtitle}
@@ -62,7 +65,7 @@ const SignInForm = () => {
             rules={passwordValidation}
             render={({ field }) => (
               <TextField
-                label="Логин"
+                label="Пароль"
                 type="password"
                 onChange={(e) => field.onChange(e)}
                 value={field.value}
@@ -75,7 +78,25 @@ const SignInForm = () => {
               />
             )}
           />
-
+          <Controller
+            control={control}
+            name={"password"}
+            rules={passwordValidation}
+            render={({ field }) => (
+              <TextField
+                label="Повторите пароль"
+                type="password"
+                onChange={(e) => field.onChange(e)}
+                value={field.value}
+                fullWidth={true}
+                size="small"
+                margin="normal"
+                className={s.authForm__input}
+                error={!!errors.password?.message}
+                helperText={errors.password?.message}
+              />
+            )}
+          />
           <Button
             type="submit"
             variant="contained"
@@ -87,10 +108,10 @@ const SignInForm = () => {
           >
             Войти
           </Button>
-          <div className={s.signup}>
-            Нет учётной записи?{" "}
-            <NavLink className={s.signup_link} to={"/signup"}>
-              Зарегистрироваться
+          <div className={s.signin}>
+            Есть учётная запись?{" "}
+            <NavLink className={s.signin_link} to={"/signin"}>
+              Войти
             </NavLink>
           </div>
         </form>
@@ -99,4 +120,4 @@ const SignInForm = () => {
   );
 };
 
-export default SignInForm;
+export default RegisterForm;

@@ -1,5 +1,6 @@
 import { App } from "@/components/App/App";
 import About from "@/pages/about/About";
+import Checkout from "@/pages/checkout/Checkout";
 import Shop from "@/pages/shop/Shop";
 import { SignIn } from "@/pages/signin";
 import SignUp from "@/pages/signup/SignUp";
@@ -40,6 +41,14 @@ export const router = createBrowserRouter([
         element: (
           <Suspense fallback={"Загрузка страницы..."}>
             <SignUp />
+          </Suspense>
+        ),
+      },
+      {
+        path: "/checkout",
+        element: (
+          <Suspense fallback={"Загрузка страницы..."}>
+            <Checkout />
           </Suspense>
         ),
       },

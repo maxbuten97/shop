@@ -1,9 +1,9 @@
 import s from "./SignUp.module.scss";
-import Register from "@/components/Register/Register";
+import RegisterForm from "./register-form/register-form";
 const SignUp = () => {
   return (
     <div className={s.SignUp}>
-      <Register />
+      <RegisterForm />
     </div>
   );
 };

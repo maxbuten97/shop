@@ -1,0 +1,89 @@
+.CartDropdown {
+	max-width: 1488px;
+	margin: 0 auto;
+}
+
+.title {
+	margin-top: 50px;
+	display: flex;
+	justify-content: center;
+	font-size: 45px;
+}
+
+.btn_dropdown {
+	display: flex;
+	padding: 1rem;
+	border-radius: 9999px;
+	color: #ffffff;
+	background-color: #065f46;
+	border: none;
+}
+
+.modal {
+	position: fixed;
+	bottom: 0;
+	left: 0;
+	z-index: 10;
+	padding-left: 1.25rem;
+	padding-right: 1.25rem;
+	padding-top: 1.75rem;
+	padding-bottom: 1.75rem;
+	border-top-left-radius: 0.75rem;
+	border-top-right-radius: 0.75rem;
+	width: 50%;
+	background-color: #ffffff;
+	box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25);
+	max-height: 300px;
+	overflow: scroll;
+}
+
+.modal::-webkit-scrollbar {
+	width: 10px;
+	height: 10px;
+}
+.modal::-webkit-scrollbar-thumb {
+	background: #065f46;
+	border-radius: 6px;
+}
+.modal::-webkit-scrollbar-track {
+	background: #a8a8a8;
+}
+
+.card_wrap {
+	display: flex;
+	padding: 1rem;
+	margin-bottom: 1rem;
+	justify-content: space-between;
+	align-items: center;
+	border-radius: 0.5rem;
+	background-color: #d1fae5;
+}
+
+.card {
+	display: flex;
+	align-items: center;
+	width: 75%;
+}
+
+.card_img {
+	margin-right: 1rem;
+}
+
+.card_title_wrap {
+	margin-right: 1rem;
+	width: 75%;
+	line-height: 1.25rem;
+}
+
+.card_title {
+	overflow: hidden;
+	margin-bottom: 0.25rem;
+	font-weight: 600;
+	color: #064e3b;
+	text-overflow: ellipsis;
+	white-space: nowrap;
+}
+
+.card_price {
+	color: #065f46;
+}
